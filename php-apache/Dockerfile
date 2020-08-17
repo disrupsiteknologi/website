@@ -2,7 +2,9 @@ FROM php:7.4-apache
 
 COPY etc /etc
 
-RUN a2enmod rewrite && \
+RUN apt update -y && \
+    apt install certbot python3-certbot-apache -y && \
+    a2enmod rewrite && \
     a2dissite 000-default && \
     a2ensite disrupsiteknologi.com && \
     a2ensite disrupsiteknologi.com-ssl && \
