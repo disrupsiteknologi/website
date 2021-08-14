@@ -1,0 +1,16 @@
+version: "3.6"
+services:
+  disrupsiteknologi-php-apache:
+    container_name: disrupsiteknologi-php-apache
+    image: disrupsiteknologi-php-apache:0.0.1
+    build: ./php-apache
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - localhost
+    volumes:
+      - ./www:/var/www/html
+networks:
+  localhost:
+    name: localhost
